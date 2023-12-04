@@ -36,7 +36,7 @@ body {
   border-left: 10px solid var(--blue);
   transition: 0.5s;
   overflow: hidden;
-  margin: 10px 0px 10px 10px;
+  margin: 10px 10px 10px 10px;
   border-radius: 20px;
 }
 .navigation.active {
@@ -413,18 +413,23 @@ body {
 @media (max-width: 991px) {
   .navigation {
     left: -300px;
+    transition: 0.5s;
   }
   .navigation.active {
     width: 280px;
     left: 0;
   }
+  .toggle{
+    background: transparent;
+    animation: lr-bar;
+  }
   .main {
     width: 100%;
     left: 0;
   }
-  .main.active {
+  /* .main.active {
     left: 300px;
-  }
+  } */
   .cardBox {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -460,7 +465,7 @@ body {
     z-index: 1000;
   }
   .navigation.active {
-    width: 100%;
+    width: 93%;
     left: 0;
   }
   .toggle {
@@ -469,9 +474,20 @@ body {
   .main.active .toggle {
     color: #fff;
     position: fixed;
-    right: 0;
+    top: 20px;
+    right: 20px;
     left: initial;
   }
 }
 
 /* ====================== Responsive Design End========================== */
+
+
+@keyframes lr-bar {
+  0% { transform-origin: center left 0px; transform: scaleX(0); }
+  36% { transform: scaleX(1); transform-origin: center left 0px; }
+  54% { transform: scaleX(1); transform-origin: center right 0px; }
+  90% { transform: scaleX(0);  transform-origin: center right 0px; }
+  100% { transform: scaleX(0);  transform-origin: center right 0px; }
+}
+
